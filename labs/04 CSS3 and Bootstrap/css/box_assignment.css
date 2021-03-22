@@ -1,0 +1,52 @@
+.center {
+    margin: auto;
+    width: fit-content;
+}
+
+h1, p, figcaption {
+    font-family: Arial, Verdana, sans-serif;
+}
+
+.center h1, .center figcaption, .center h2, .center p{
+    text-align: center;
+}
+
+h1 {
+    font-size: 120px;
+    font-weight: normal;
+}
+
+figcaption {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.center img {
+    display: block;
+    margin: 0 auto 1em auto;
+    border: 2px solid lightblue;
+}
+
+.blue p, .red p, .yellow p {
+    margin: 0;
+}
+
+.blue, .yellow, .red {
+    padding: 1em 2em 1em 2em;
+}
+
+.blue{
+    border-top: 1px solid black;
+    background-color: lightblue;
+}
+
+.yellow{
+    border-top: 1px solid black;
+    background-color: lightyellow;
+}
+
+.red{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    background-color: lightcoral;
+}

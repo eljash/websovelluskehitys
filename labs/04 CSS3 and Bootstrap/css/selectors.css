@@ -17,3 +17,17 @@ h1.alert {
 p#unique {
     font-size: 0.8em;
 }
+
+.underline {
+    text-decoration: underline black;
+}
+
+.basicprogramming{
+    background-color: grey;
+    padding: 10px;
+    border-radius: 5px;
+}
+p.basicprogramming{
+    color: lightgrey;
+    font-size: 15px;
+}

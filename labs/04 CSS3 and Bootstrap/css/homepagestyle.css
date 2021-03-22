@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+}
+
+p, h1, h2 {
+    font-family: Arial, Verdana, sans-serif;
+}
+
+body{
+    margin: 0;
+    height: 5000px;
+}
+
+.top {
+    width: 100%;
+    height: 300px;
+    background-color: black;
+}
+
+.top h1 {
+    color: white;
+    padding-top: 200px;
+}
+
+.center{
+    margin: 0 auto 0 auto;
+    padding-top: 50px;
+}
+
+.centerTxt{
+    text-align: center;
+}
+
+#card {
+    float: right;
+    width: 20%;
+    padding: 5px;
+}
+
+#card img {
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#card h2, #card p{
+    text-align: center;
+}
