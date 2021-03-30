@@ -23,13 +23,7 @@ function addTask() {
         // Add the item to the array:
         tasks.push(task.value);
         
-        // Update the page:
-        message = '<h2>To-Do</h2><ol>';
-        for (var i = 0, count = tasks.length; i < count; i++) {
-            message += '<li>' + tasks[i] + '</li>';
-        }
-        message += '</ol>';
-        output.innerHTML = message;
+        updateList();
         
     } // End of task.value IF.
 
@@ -42,5 +36,32 @@ function addTask() {
 function init() {
     'use strict';
     document.getElementById('theForm').onsubmit = addTask;
+    document.getElementById('removeDuplicates').onclick = removeDuplicates;
 } // End of init() function.
+
+// Remove duplicates from the task list
+function removeDuplicates(){
+    var uniqueTasks = [];
+    for (var i = 0, count = tasks.length; i < count; i++){
+        if(uniqueTasks.includes(tasks[i])) {
+            console.log('list contains '+tasks[i]+' already.');
+        } else {
+            uniqueTasks.push(tasks[i]);
+        }
+    }
+    tasks = [];
+    tasks = uniqueTasks;
+    updateList();
+}
+
+function updateList(){
+    // Update the page:
+    message = '<h2>To-Do</h2><ol>';
+    for (var i = 0, count = tasks.length; i < count; i++) {
+        message += '<li>' + tasks[i] + '</li>';
+    }
+    message += '</ol>';
+    output.innerHTML = message;
+}
+
 window.onload = init;

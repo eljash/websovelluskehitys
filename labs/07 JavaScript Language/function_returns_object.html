@@ -25,6 +25,7 @@
 			color: colors[rand4],
 			passengers: rand5,
 			convertible: convertible[rand6],
+            engine: makeEngine(),
 			mileage: 0
 		};
 		return car;
@@ -32,10 +33,37 @@
 
 	function displayCar(car) {
 		console.log("Your new car is a " + car.year + " " + car.make + " " + car.model);
+		console.log("Car engine details: ");
+        console.log("-Cylinders: "+car.engine.cylinder);
+        console.log("-Engine capacity: "+car.engine.ccvolume);
+        console.log("-Fuel type: "+car.engine.fueltype);
+        console.log("-Max torque: "+car.engine.maxTorque);
 	}
 
 	var carToSell = makeCar();
 	displayCar(carToSell);
+
+	function makeEngine(){
+	  var cylinders = ["straight-2","straight-3","straight-4",
+        "straight-5","straight-6","straight-8","straight-10","straight-12"];
+	  var ccvolumes = ["1.0L","1.4L","1.6L","2.0L","2.2L","2.6L","2.8L","2.9L","3.0L","3.2L","3.3L","1.9L"];
+	  var fueltypes = ["Gasoline","Diesel","Ethanol","Biodiesel"];
+	  var maxTorques = ["90Nm","100Nm","110Nm","120Nm","130Nm","140Nm","200Nm","250Nm","300Nm","690Nm"];
+
+	  var rand1 = Math.floor(Math.random() * cylinders.length);
+      var rand2 = Math.floor(Math.random() * ccvolumes.length);
+      var rand3 = Math.floor(Math.random() * fueltypes.length);
+      var rand4 = Math.floor(Math.random() * maxTorques.length);
+
+      var engine = {
+        cylinder: cylinders[rand1],
+        ccvolume: ccvolumes[rand2],
+        fueltype: fueltypes[rand3],
+        maxTorque: maxTorques[rand4]
+      }
+
+      return engine;
+    }
 
   </script>
 </head>
