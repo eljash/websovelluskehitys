@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="lomakecss.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<!-- from: id="eventSearch" action="/api/events" method="get" -->
+<!-- <input type="submit" value="Search">-->
+<div class="kokolevea">
+    <div id="hakukentta">
+    <label for="start">Start date:</label><br>
+    <input type="date" id="start" name="start"><br>
+    <label for="end">End date:</label><br>
+    <input type="date" id="end" name="end"><br><br>
+    <button onclick="getEvents()">Search</button>
+    </div>
+</div>
+
+<div id="events">
+
+</div>
+
+</body>
+</html>
+<script src="lomakeskripti.js"></script>

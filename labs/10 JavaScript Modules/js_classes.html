@@ -42,6 +42,54 @@ console.log(darkRoast.order());
 var specialBlend = new Coffee("Special Blend", 200);
 console.log(specialBlend.order());
 
+function Tea(type,ounces){
+    this.type = type;
+    this.ounces = ounces;
+    this.getSteepTime = function() {
+        if (this.ounces === 8) {
+            return "3-5 minutes";
+        } else if (this.ounces === 12) {
+            return "7-10 minutes";
+        } else if (this.ounces === 16) {
+            return "20-30 minutes";
+        }
+    };
+    this.order = function() {
+        var msg;
+        switch (this.getSteepTime()) {
+            case "3-5 minutes":
+            case "7-10 minutes":
+            case "20-30 minutes":
+                msg = "You've ordered a " + this.type + " tea that has a steep time of " + this.getSteepTime() + ".";
+                break;
+            default:
+                msg = "We don't have a " + this.type + " in that size!";
+                break;
+        }
+        return msg;
+    }
+}
+
+Tea.prototype.sip = function() {
+    console.log("Hmm, tasty");
+}
+
+Coffee.prototype.sip = function() {
+    console.log("Hmm, tasty");
+}
+
+var greenTea = new Tea("Green Tea", 8);
+console.log(greenTea.order());
+var greyTea = new Tea("Grey Tea", 12);
+console.log(greyTea.order());
+var cocacolaTea = new Tea("Coca-Cola Tea", 16);
+console.log(cocacolaTea.order());
+var crazyTea = new Tea("CRAZY TEA", 999);
+console.log(crazyTea.order());
+
+cocacolaTea.sip();
+darkRoast.sip();
+
 </script>
 </head>
 <body>

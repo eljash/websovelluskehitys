@@ -1,0 +1,24 @@
+table {
+    width: 100%;
+}
+
+th {
+    margin: 20px;
+    font-size: 20px;
+}
+
+tr {
+    padding: 5px;
+    text-align: center;
+}
+
+#hakukentta {
+    margin: auto;
+}
+
+.kokolevea{
+    width: 100%;
+}
+
+tr:nth-child(even) {background: #CCC}
+tr:nth-child(odd) {background: #FFF}

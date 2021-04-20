@@ -10,7 +10,9 @@
     <button id="write">Write Something</button>
 	<p id="output">Click button 3 to set this text.</p>
     <script src="js/dom_utils.js"></script>
+    <script src="js/dom_utils_global.js"></script>
     <script>
+        /* dom_utils.js
         // here we will use the 'U' object defined in the utils script file
 
         // first select the hello button
@@ -31,6 +33,35 @@
         U.addEvent(writeText, 'click', function() {
             U.setText('output', "Writing some new text for you.");
         });
+         */
+
+        // dom_utils_global.js
+
+        var buttons = window.qsa('button');
+
+        // first select the hello button
+        // then add a click listener
+        //var helloButton = window.qs('button',0);
+        var clickAction = function() { alert('Well HELLO!'); };
+        window.$live('button', 'click', clickAction);
+
+
+        // this one removes the listener after a click
+        //var helloOnce = window.qs('button',0);
+        var alertOnce = function() {
+            alert('Well HELLO!');
+        };
+        window.$live('button'[1], 'click', function (){
+            alert('Well HELLO!');
+        });
+
+
+        var writeText = buttons[2];
+        U.addEvent(writeText, 'click', function() {
+            window.qs('output',0).innerText=":D";
+            //U.setText('output', "Writing some new text for you.");
+        });
+
     </script>
 </body>
 </html>

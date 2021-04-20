@@ -16,7 +16,25 @@ window.onload = function() {
 	} else if (div.attachEvent) {
 		div.attachEvent("click", handleClick);
 	}
+
+	var paragraph = document.getElementById('teksti');
+	if(paragraph.addEventListener){
+	  paragraph.addEventListener("mouseover", handeMouseOver, false);
+    } else if (paragraph.attachEvent) {
+	  paragraph.attachEvent("mouseover", handeMouseOver);
+    }
 };
+
+function handeMouseOver(e) {
+  var evt = e || window.event;
+  var target;
+  if(evt.target){
+    target = evt.target;
+  } else {
+    target = evt.srcElement;
+  }
+  alert("Hiiri meni elementin '"+ target.id+ "' päälle...");
+}
 
 function handleClick(e) {
 	var evt = e || window.event;
@@ -33,5 +51,8 @@ function handleClick(e) {
 </head>
 <body>
 <span id="clickme">Click me!</span>
+<div>
+  <p id="teksti">Täällä on tekstiä.</p>
+</div>
 </body>
 </html>

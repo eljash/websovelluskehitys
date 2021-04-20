@@ -18,8 +18,44 @@ var fido2 = {
 var fidoString = JSON.stringify(fido2);
 console.log("We made a string from a dog! " + fidoString);
 
+var computer = {
+  cpu: {
+    brand: "AMD",
+    model: "Ryzen 5 5600X",
+    cores: "6",
+    threads: "12"
+  },
+  gpu: {
+    brand: "Nvidia",
+    model: "GTX 1070ti"
+  },
+  ram: {
+    type: "DDR4",
+    capacity: "16gb"
+  }
+};
+window.onload = function()
+{
+  var myString = JSON.stringify(computer);
+
+  var computerElement = document.getElementById("computer");
+  computerElement.textContent = myString;
+
+  var myObject = JSON.parse(computerElement.innerText);
+  var cpuBrand = myObject.cpu.brand;
+
+  var cpubrandElement = document.getElementById("cpubrand");
+  cpubrandElement.textContent = "Cpu brand: "+JSON.stringify(cpuBrand);
+}
+
   </script>
 </head>
 <body>
+  <div>
+    <p id="computer"></p>
+  </div>
+  <div>
+    <p id="cpubrand"></p>
+  </div>
 </body>
 </html>

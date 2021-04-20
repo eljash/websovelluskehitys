@@ -21,9 +21,18 @@
 
 	function addtext(){
 		if (document.createTextNode){
-			var textToAdd = " Div was clicked! "
-			var newNode = document.createTextNode(textToAdd);
-			document.getElementById("mydiv").appendChild(newNode);
+		    if(!document.getElementById("lista")){
+		        let lista = document.createElement("ul");
+		        lista.id = "lista";
+		        document.getElementById("mydiv").append(lista);
+            }
+		    let lista = document.getElementById("lista");
+		    let rivi = document.createElement("li");
+		    rivi.innerText = " Div was clicked! ";
+			//var textToAdd = " Div was clicked! "
+			//var newNode = document.createTextNode(textToAdd);
+			//document.getElementById("mydiv").appendChild(newNode);
+            lista.appendChild(rivi);
 		} else {
 			alert("Looks like you have an old browser!");
 		}

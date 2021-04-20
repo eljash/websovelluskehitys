@@ -9,6 +9,10 @@
   <span id="ajaxButton" style="cursor: pointer; text-decoration: underline">
     Make a request
   </span>
+  <div>
+      <input type="search" id="URL">
+      <button id="searchURL">Search</button>
+  </div>
 
 
   <script type="text/javascript">
@@ -57,6 +61,52 @@
           alert('There was a problem with the request.');
         }
       }
+    }
+
+    // AJAX HTTP request to URL
+      document.getElementById("searchURL").onclick = function (){searchURL();};
+
+    function searchURL(){
+        console.log(":D");
+        var searchElement = document.getElementById("URL");
+        if(searchElement){
+            var urlToSeek = searchElement.innerText;
+            if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+                httpRequest = new XMLHttpRequest();
+            } else if (window.ActiveXObject) { // IE
+                try {
+                    httpRequest = new ActiveXObject("Msxml2.XMLHTTP");
+                }
+                catch (e) {
+                    try {
+                        httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+                    }
+                    catch (e) {}
+                }
+            }
+
+            if (!httpRequest) {
+                alert('Giving up :( Cannot create an XMLHTTP instance');
+                return false;
+            }
+
+            // set a callback function for when the httpRequest completes
+            httpRequest.onreadystatechange = isDown;
+
+            // now do the actual AJAX request
+            httpRequest.open('GET', urlToSeek);
+            httpRequest.send();
+        }
+    }
+
+    function isDown(){
+        if (httpRequest.readyState === 4) {
+            if (httpRequest.status === 200) {
+            } else if(httpRequest.status==404){
+                alert("Site is DOWN!");
+            }
+        }
+
     }
   })();
   </script>
